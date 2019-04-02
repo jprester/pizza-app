@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const OrderListItem = ({orderId, totalPrice, esitmatedDelivery, orderedAt}) => (
   <li key={ orderId }>
@@ -11,5 +12,12 @@ const OrderListItem = ({orderId, totalPrice, esitmatedDelivery, orderedAt}) => (
     <hr/>
   </li>
 );
+
+OrderListItem.propTypes = {
+  orderId: PropTypes.number,
+  totalPrice: PropTypes.number,
+  esitmatedDelivery: PropTypes.string,
+  orderedAt: PropTypes.string
+};
 
 export default OrderListItem;

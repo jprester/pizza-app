@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getMenuItemFromId } from '../../utils/listFilters';
 import ShoppingCartListItem from './ShoppingCartListItem';
@@ -42,6 +43,16 @@ const ShoppingCartList = (props) => {
   }
 
   return <div>Loading</div>;
+};
+
+ShoppingCartList.propTypes = {
+  restaurantId: PropTypes.number,
+  cart: PropTypes.array,
+  removeAllItems: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
+  currentOrder: PropTypes.object,
+  pizzaJointMenu: PropTypes.array,
+  message: PropTypes.string
 };
 
 export default ShoppingCartList;
