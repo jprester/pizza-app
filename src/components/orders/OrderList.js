@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import OrderListItem from './OrderListItem';
 
 const OrderList = (props) => {
   if(props.orders.length) {
@@ -11,14 +12,7 @@ const OrderList = (props) => {
         <ul>
           {props.orders.map(item => {
             return (
-              <li key={ item.orderId }>
-                <p>Order ID: {item.orderId}</p>
-                <p>Total Price: {item.totalPrice}</p>
-                <p>Ordered at: {item.orderedAt}</p>
-                <p>Estimated delivery: {item.esitmatedDelivery}</p>
-                <Link to={ `/orders/${item.orderId}` } className="link-item">Go to order</Link>
-                <hr/>
-              </li>
+              <OrderListItem key={ item.orderId } { ...item }/>
             );
           })}
         </ul>
