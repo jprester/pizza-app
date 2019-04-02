@@ -86,7 +86,10 @@ ShoppingCart.propTypes = {
   startFetchingPizzaJointMenu: PropTypes.func.isRequired,
   placeOrder: PropTypes.func.isRequired,
   removeAllItems: PropTypes.func.isRequired,
-  removeItem: PropTypes.func.isRequired
+  removeItem: PropTypes.func.isRequired,
+  setMessage: PropTypes.func.isRequired,
+  history: PropTypes.object,
+  setPizzaJointMenu: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, {
@@ -95,5 +98,5 @@ export default connect(mapStateToProps, {
   placeOrder,
   setMessage,
   removeAllItems,
-  removeItem
+  removeItem,
 })(ShoppingCart);

@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import OrderStatusBar from './OrderStatusBar';
 
 const countCartItems = (cart) => {
   if(cart.length) {
@@ -18,14 +21,7 @@ function createCartLink (cart) {
 
 function displayOrderStatus(currentOrder) {
   if(currentOrder && currentOrder.orderId) {
-    return (
-      <div className="active-order-widget-container">
-        <div className="active-order-widget">
-          <div className="content-wrapper">
-            Your have an active order.  <Link to={ `/orders/${currentOrder.orderId}` } className="link-item">Order status</Link>
-          </div>
-        </div>
-      </div>);
+    return <OrderStatusBar id={ currentOrder.orderId }/>;
   };
 }
 
@@ -50,5 +46,10 @@ const mapStateToProps = (state) => ({
   cart: state.shoppingCart.cart,
   currentOrder: state.orders.currentOrder
 });
+
+Header.propTypes = {
+  cart: PropTypes.array,
+  currentOrder: PropTypes.object,
+};
 
 export default connect(mapStateToProps)(Header);
